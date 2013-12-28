@@ -1,0 +1,24 @@
+{
+  "name": "timesync",
+  "version": "0.0.0",
+  "description": "Damn Simple Time Synchronization Server",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "amdefine": "~0.1.0",
+    "chai": "~1.8.1",
+    "ws": "~0.4.31"
+  },
+  "devDependencies": {
+    "mocha": "~1.16.2"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": "",
+  "author": "Thai Pangsakulyanont <org.yi.dttvb@gmail.com>",
+  "license": "BSD"
+}
