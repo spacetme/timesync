@@ -11,7 +11,7 @@ wss.on('connection', function(ws) {
     if (message.length <= 20) {
       ws.send(message + ',' + new Date().getTime())
       count += 1
-      if (count == 8) {
+      if (count == 10) {
         ws.send('x')
         ws.close()
       }
