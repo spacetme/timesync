@@ -18,22 +18,28 @@ describe('timesync', function() {
 
   })
 
-  it('::offset should find the best offset', function() {
+  it('::offset should find the best offset, removing outliers', function() {
 
-    // https://en.wikipedia.org/wiki/Intersection_algorithm
     expect(timesync.offset([
       { offset: -1, delay: 5 },
       { offset: 0, delay: 5 },
       { offset: 1, delay: 5 },
       { offset: 1000, delay: 2000 }
-    ])).to.equal(0)
+    ])).to.equal(0.5)
 
     expect(timesync.offset([
       { offset: 555, delay: 5 },
-      { offset: 1000, delay: 3000 },
+      { offset: 100,  delay: 3000 },
       { offset: 2000, delay: 4500 },
       { offset: 3000, delay: 6000 }
     ])).to.equal(555)
+
+    expect(timesync.offset([
+      { offset: 100, delay: 5 },
+      { offset: 200, delay: 6 },
+      { offset: 300, delay: 7 },
+      { offset: 400, delay: 4 }
+    ])).to.equal(200)
     
   })
   
